@@ -5,25 +5,39 @@
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/themes/base/jquery-ui.css" type="text/css" media="all" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
-    <script>$(function() { $( "#go" ).click(function(){ $("#about").remove(); }) }); </script>
+    <script>$(function() { $( "#go" ).click(function(){ $("#about").animate({'height':0, 'margin-bottom':0}, 1000, function(){ $("#about").remove(); $("#cover").animate({'height': 0, opacity: 0}, 1000, function(){ $("#cover").remove(); $("#about_link").html("?").attr("href","javascript:location=location;").attr("font-size", "15px"); }) }) }) }); </script>
     <script>$(function() {  $( "#slider" ).slider({min:2, max:5, step:1}); });</script>
      <style>
-      *{ text-align:center; font-family: Myriad Pro;}
-      h1{ padding: none; margin-top: 0px; margin-bottom: 0px; width: 800px; margin: auto;}
+       body{ background: rgb(10,10,10); }
+      *{ text-align:center; font-family: Myriad Pro; color: white;}
+      h1{ padding: none; margin-top: 0px; margin-bottom: 0px; width: 960px; margin: auto;}
       #clusters{border:0; color:#f6931f; font-weight:bold; padding:5px; margin: 5px;}
       #slider{ width: 500px; margin: auto; margin-top: 5px; margin-bottom: 5px;}
       #art_canvas{ cursor: pointer }
       #info{ margin: auto; width: 800px; }
       #color{ width: 100px; height: 100px; float: left;}
       #description{ width: 600px; height: 100px; float: right; margin: 20px; text-align: left;}
+      #about{ width: 400px; margin: auto; color: white; margin-bottom: 200px;}
+      #about p{ text-align: justify;} 
+      #about_link{ position: absolute; top: 0; right: 0; width: 30px; height: 30px; font-size: 30px; text-decoration: none;}
+      #cover{ height: 1000px; width: 100%; position: relative; top:-600px; z-index:999; background: rgb(10,10,10);}
     </style>
 
   </head>
   <body>
     <h1>Identifying Regional Design Templates of Ancient Near Eastern Ivory Sculptures of Women Using Computer Technology</h1>
+    <a id="about_link"></a>
     <div id="about">
-      Hi!
-      <input type="button" id="go">Let's go!</input>
+      <h2>What's this all about?</h2>
+      <p>We cluster images based on features deatiled by art historians using well known clustering algorithms</p>
+      <p>The result is an interesting set of clusters that may help us better understand the similarities and differences between ANE sculptures</p>
+      <h2>OK, let me explore!</h2>
+      <p>Hold on a hot second! Before you get started, here's some info about using the app:
+      <p><b>Click</b> on any image to get information about the individual image</p>
+      <p><b>Hover</b> over a cluster to get information about the invididual cluster</p>
+      <p><b>Double click</b> over a bunch of images to fan them out</p>
+      
+      <a href="javascript:void(0);" id="go">Loading app..</a>
     </div>
     
     <div id="main">
@@ -33,5 +47,6 @@
       <canvas id="art_canvas" data-processing-sources="code.pde"></canvas>
       <div id="info">Loading app...</div>
     </div>
+    <div id="cover"></div>
   </body>
 </html>

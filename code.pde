@@ -79,6 +79,7 @@ void setPos(data){
     }
     dropLifted(true);
     console.log("set positions of circles");
+    $("#go").html("Let's go!");
 }
 
 void setup() {
