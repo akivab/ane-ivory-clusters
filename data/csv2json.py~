@@ -1,0 +1,26 @@
+import json
+import sys
+
+def csv2json(csv_file):
+    """Converts a CSV file to a JSON file for use in webpage.
+    
+    Input:
+    first line: key1, key2, key3
+    all others: val1, val2, val3
+    
+    Ouput:
+    { key1: val1, key2: val2, key3: val3 },
+    { key1: ... }
+    """
+    
+    page = open(csv_file, "r").readlines()
+    first = page[0]
+    page = page[1:]
+    keys = first.split(",")
+    print [i.strip() for i in keys]
+
+if __name__ == "__main__":
+    if len(sys.argv) > 0:
+        csv2json(sys.argv[1])
+    else:
+        print "usage: python csv2json.py <csv_file>"
