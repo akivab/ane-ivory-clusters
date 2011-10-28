@@ -21,13 +21,15 @@ def csv2json(csv_file):
     kv = {}
     count = 0
     for row in page:
+        print row.strip()
         vals = [i.strip() for i in row.split(",")]
+        print vals
         tmp = {}
         for count in xrange(len(keys)):
             if len(vals) > count and vals[count] != "":
                 tmp[keys[count]]=vals[count]
-        if "Name" in tmp:
-            kv[tmp["Name"]] = tmp
+        if keys[0] in tmp:
+            kv[keys[0]] = tmp
         else:
             kv[count] = tmp
             count+=1

@@ -1,0 +1,30 @@
+application: ane-ivory-clusters
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /code
+  static_dir: code
+
+- url: /images
+  static_dir: images
+
+- url: /data
+  static_dir: data
+
+- url: /js
+  static_dir: js
+
+- url: /css
+  static_dir: css
+
+- url: .*
+  static_files: index.html
+  upload: index.html
+
+  
+
+builtins:
+- datastore_admin: on

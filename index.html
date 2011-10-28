@@ -1,52 +1,50 @@
 <!doctype html>
 <html>
   <head>
-    <title>Art Class</title>
+    <title>Identifying Regional Design Templates of Ancient Near Eastern Ivory Sculptures of Women</title>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
-    <script>$(function() { $( "#go" ).click(function(){ $("#about").animate({'height':0, 'margin-bottom':0}, 1000, function(){ $("#about").remove(); $("#cover").animate({'height': 0, opacity: 0}, 1000, function(){ $("#cover").remove(); $("#about_link").html("?").attr("href","javascript:location=location;").attr("font-size", "15px"); }) }) }) }); </script>
-    <script>$(function() {  $( "#slider" ).slider({min:2, max:5, step:1}); });</script>
-     <style>
-       body{ background: rgb(10,10,10); }
-      *{ text-align:center; font-family: Myriad Pro; color: white;}
-      h1{ padding: none; margin-top: 0px; margin-bottom: 0px; width: 960px; margin: auto;}
-      #clusters{border:0; color:#f6931f; font-weight:bold; padding:5px; margin: 5px;}
-      #slider{ width: 500px; margin: auto; margin-top: 5px; margin-bottom: 5px;}
-      #art_canvas{ cursor: pointer }
-      #info{ margin: auto; width: 800px; }
-      #color{ width: 100px; height: 100px; float: left;}
-      #description{ width: 600px; height: 100px; float: right; margin: 20px; text-align: left;}
-      #about{ width: 400px; margin: auto; color: white; margin-bottom: 200px;}
-      #about p{ text-align: justify;} 
-      #about_link{ position: absolute; top: 0; right: 0; width: 30px; height: 30px; font-size: 30px; text-decoration: none;}
-      #cover{ height: 1000px; width: 100%; position: relative; top:-600px; z-index:999; background: rgb(10,10,10);}
-    </style>
+    <script src="js/setup.js"></script>
 
   </head>
   <body>
-    <h1>Identifying Regional Design Templates of Ancient Near Eastern Ivory Sculptures of Women Using Computer Technology</h1>
-    <a id="about_link"></a>
-    <div id="about">
-      <h2>What's this all about?</h2>
-      <p>We cluster images based on features deatiled by art historians using well known clustering algorithms</p>
-      <p>The result is an interesting set of clusters that may help us better understand the similarities and differences between ANE sculptures</p>
-      <h2>OK, let me explore!</h2>
-      <p>Hold on a hot second! Before you get started, here's some info about using the app:
-      <p><b>Click</b> on any image to get information about the individual image</p>
-      <p><b>Hover</b> over a cluster to get information about the invididual cluster</p>
-      <p><b>Double click</b> over a bunch of images to fan them out</p>
+    <div id="all">
+      <h1>Identifying Regional Design Templates of Ancient Near Eastern Ivory Sculptures of Women</h1>
+      <h2 id="subheader">This project is supported by a National Endowment for the Humanities Digital Humanities Level II Start-up Grant</h2>
+      <h3>(Grant Number HD 50650-09)</h3>
+      <a id="about_link"></a>
+      <div id="about">
+	<h2>What's this all about?</h2>
+	<p>Using clustering algorithms, we group sculptures based on visual and quantitative data. The results may reveal essential characteristics of ancient
+	  design templates and help us understand similarities, differences, and relationships among sculptures.</p>
+	<h2>OK, let me explore!</h2>
+	<p><b>Click</b> on any image to get information about the individual sculpture. <b>Click</b> on its thumbnail at the bottom left of the screen to view a larger image.</p>
+	<p><b>Hover</b> over a cluster to get information about that cluster.</p>
+	<p><b>Double click</b> over a pile of images to fan them out.</p> 
+	<!--See how prototypical an object is of its cluster by how far it moves from the center.-->
+	
+	<p><b>Slide</b> the view bar to see the results of different numbers of clusters.</p>
+	
+	<p>Check out the <b>index</b> to see which sculptures are included in this study. <b>Search</b> for a particular object.</p>
+	
+	<a href="javascript:void(0);" id="go">Loading app..</a>
+      </div>
       
-      <a href="javascript:void(0);" id="go">Loading app..</a>
+      <div id="main">
+	<div id="index" class="popped in">index<div id="close"></div></div>
+	<div id="demo">
+	  <input id="clusters" disabled="true" value="2 clusters"></input>
+	  <div id="slider"></div>
+	  <script src="js/processing.min.js"></script>	
+	  <canvas id="art_canvas" data-processing-sources="code/directives.pde code/code.pde"></canvas>
+	  <div id="info">Loading app...</div>
+	</div>
+      </div>
+      <div id="cover"></div>
+	    
     </div>
-    
-    <div id="main">
-      <input id="clusters" disabled="true" value="2 clusters"></input>
-      <div id="slider"></div>
-      <script src="js/processing.min.js"></script>
-      <canvas id="art_canvas" data-processing-sources="code.pde"></canvas>
-      <div id="info">Loading app...</div>
-    </div>
-    <div id="cover"></div>
   </body>
 </html>
