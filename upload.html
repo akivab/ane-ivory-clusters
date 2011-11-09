@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <style>
+      iframe{ width: 500px; height: 100px;}
+      div.tab{ display: none; }
+      div#complete{ margin-left: 20px; }
+      div#main{ margin-left: 20px; width: 500px;}
+li{ float: left; text-decoration: none; margin: 10px; padding: 10px; cursor: pointer;}
+      div#greeting{ position: absolute; right: 15px; top: 15px; }
+      h1{ margin-left: 20px; }
+      h2#pick{ margin-left: 20px; }
+      .picked{ background: black; color: white; }
+
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+	$(".info").each(function(i,e){
+	    $(e)
+		.click(function(){
+		    var k = $(e); 
+		    $(".info").each(function(a,b){
+			$(b).removeClass("picked");
+		    });
+		    k.addClass("picked");
+		    $(".file").each(function(j,f){
+			if($(f).attr("id")==k.attr("id")+"-div")
+			    $(f).removeClass("tab");
+			else
+			    $(f).addClass("tab");
+		    });
+		});
+	});
+    $("#posterior_factorized_k2").click();
+    });
+    
+    </script>
+  </head>
+  <body>
+    <h1>Updating files</h1>
+    {% if greeting %}
+    <div id="greeting">{{greeting}}</div>
+    {% endif %}
+    
+    {% if complete %}
+    <div id="complete">{{complete}}</div>
+    {% endif %}
+
+    <h2 id="pick">Pick a file to upload</h2>
+    {% for key in dates.items %}
+    <li class="info" id="{{key.0}}">{{key.0}}</li>
+    {% endfor %}
+
+    <div id="main">
+    {% for key in dates.items %}
+    
+    <div class="tab file" id="{{key.0}}-div">
+      <h2>{{key.0}}.csv</h2>
+      <p>Last updated: {{key.1}}</p>
+      <form action="/data/upload" enctype="multipart/form-data" method="post">
+	Please specify a csv file for {{key.0}}.csv
+	<input name="filename" type="hidden" value="{{key.0}}.csv" />
+	<br />
+	<input type="file" name="datafile" size="40" />
+	<input type="submit" value="Send" />
+      </form>
+      <p>csv on file:</p>
+      <iframe src='/data/{{key.0}}.csv'></iframe>
+      <p>json on file:</p>
+      <iframe src='/data/{{key.0}}.json'></iframe>
+ 
+      <form action="/data/upload" method="post">
+	<input name="filename" type="hidden" value="{{key.0}}.csv" />
+	<input name="delete" type="hidden" value="1" />
+	<input type="submit" value="Delete Latest" />
+      </form>
+	    
+    </div>
+    {% endfor %}
+    </div>
+  </body>
+</html>
+  

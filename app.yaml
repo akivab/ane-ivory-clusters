@@ -1,19 +1,12 @@
 application: ane-ivory-clusters
-version: 2
+version: 3
 runtime: python
 api_version: 1
 
 handlers:
 
-- url: /code
-  static_dir: code
-  mime_type: text/javascript
-
 - url: /images
   static_dir: images
-
-- url: /data
-  static_dir: data
 
 - url: /js
   static_dir: js
@@ -21,11 +14,8 @@ handlers:
 - url: /css
   static_dir: css
 
-- url: .*
-  static_files: index.html
-  upload: index.html
+- url: /data.*
+  script: datahandler.py
 
-  
-
-builtins:
-- datastore_admin: on
+- url: /.*
+  script: index.py

@@ -1,0 +1,33 @@
+#main{ margin: auto; position: relative; width: 900px; }
+body{ background: url(/images/background.jpg); }
+#info-div{ width:900px; position: relative; height: 80px; background-color:#EBEBE4}
+#search{ right: 0; top: 0; margin: 10px; z-index: 1; text-align: left;position: absolute;}
+#slider-div{ position: absolute; right: 0px;}
+input{ border:0px; font-weight:bold; padding:5px; margin: 5px; text-align: center; }
+#slider-info{ color:#f6931f; }
+.info h1{font-size: 12pt; text-align: left; margin: 0px; padding-top: 10px;  margin-left: 75px; }
+.info p{ text-align: left; width: 700px; margin-left: 75px; overflow: hidden;}
+#info-box{ position: absolute; top: 10px; left: 10px; width: 50px; height: 50px;}
+#info-box img{ position: absolute; top: 0px; left: 0px; margin: 0px; width: 50px; height: 50px; }
+#possibilities{ width: 700px; margin-top: 10px; height: 25px; overflow: hidden; }
+div.info-possibility{ width: 200px; font-size: 12pt; float: left; margin-right: 10px; cursor: pointer; margin-left: 10px;}
+div.info-possibility img{ width: 25px; height: 25px; float: left;}
+div.info-possibility p{ float: left; margin: 0px; padding: 0px; margin-right: 5px; width: 150px;}
+.selected{ background: #f6931f; }
+.link-to-larger img{ width: 50px; height: 50px;}
+div#header{ margin-bottom: 5px; }
+#header h1,h2{ text-align: center; font-size: 12pt; padding:0px; color:white;}
+#header h1{ font-size: 20pt; }
+#close{ position: absolute; top: 15px; left: 660px; width: 25px; height: 25px; background: url(/images/close.png);}
+#more{ position: absolute; bottom: 15px; left: 660px; }
+a#more, a#close{ color: black; font-family: Courier New; text-decoration: none;}
+#home{ position: relative;  }
+.move{ position: fixed; top: 50%; color:black; background: rgba(256,256,256,0.6); padding: 10px; z-index: -1;}
+#move-left{  left: 0px; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);}
+#move-right{ right: 0px; -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg);}
+img,*.unselectable { -moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select: none; user-select: none;}
+
+#about-big{ width: 100%; height: 100%; background: rgba(0,0,0,0.9); position: fixed; left: 0; top: 0; z-index: 3;}
+#about{ width: 500px; border: 5px solid black; margin-left: -250px; margin-top: -190px; left: 50%; top: 50%; position: absolute; z-index: 4; padding: 10px; color: white; text-align: left; background: black; }
+#about h3{ text-align: center;}
+#close-about{ position: absolute; top: -15px; left: -15px; width: 30px; height: 30px; }
